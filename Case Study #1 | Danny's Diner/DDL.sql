@@ -1,28 +1,52 @@
 SET SEARCH_PATH TO dannys_diner;
 
-CREATE TABLE members 
-(
-	customer_id VARCHAR PRIMARY KEY,
-	join_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE sales (
+  "customer_id" VARCHAR(1),
+  "order_date" DATE,
+  "product_id" INTEGER
 );
 
-CREATE TABLE menu 
-(
-	product_id INT PRIMARY KEY,
-	product_name VARCHAR NOT NULL,
-	price INT NOT NULL,
-	
-	CHECK (price > 0)
+INSERT INTO sales
+  ("customer_id", "order_date", "product_id")
+VALUES
+  ('A', '2021-01-01', '1'),
+  ('A', '2021-01-01', '2'),
+  ('A', '2021-01-07', '2'),
+  ('A', '2021-01-10', '3'),
+  ('A', '2021-01-11', '3'),
+  ('A', '2021-01-11', '3'),
+  ('B', '2021-01-01', '2'),
+  ('B', '2021-01-02', '2'),
+  ('B', '2021-01-04', '1'),
+  ('B', '2021-01-11', '1'),
+  ('B', '2021-01-16', '3'),
+  ('B', '2021-02-01', '3'),
+  ('C', '2021-01-01', '3'),
+  ('C', '2021-01-01', '3'),
+  ('C', '2021-01-07', '3');
+ 
+
+CREATE TABLE menu (
+  "product_id" INTEGER,
+  "product_name" VARCHAR(5),
+  "price" INTEGER
 );
 
-CREATE TABLE sales
-(
-	customer_id VARCHAR NOT NULL,
-	order_date DATE DEFAULT CURRENT_DATE,
-	product_id INT NOT NULL,
+INSERT INTO menu
+  ("product_id", "product_name", "price")
+VALUES
+  ('1', 'sushi', '10'),
+  ('2', 'curry', '15'),
+  ('3', 'ramen', '12');
+  
 
-	FOREIGN KEY (customer_id) REFERENCES members(customer_id)
-		ON UPDATE CASCADE
-		ON DELETE RESTRICT
+CREATE TABLE members (
+  "customer_id" VARCHAR(1),
+  "join_date" DATE
 );
 
+INSERT INTO members
+  ("customer_id", "join_date")
+VALUES
+  ('A', '2021-01-07'),
+  ('B', '2021-01-09');
