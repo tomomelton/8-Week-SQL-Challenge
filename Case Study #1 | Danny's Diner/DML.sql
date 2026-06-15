@@ -2,7 +2,7 @@ SET SEARCH_PATH TO dannys_diner;
 
 -- 1. What is the total amount each customer spent at the resturant?
 
-SELECT customer_id, SUM(price)
+SELECT customer_id, SUM(price) AS total_spent
 FROM menu, sales
 WHERE sales.product_id = menu.product_id
 GROUP BY customer_id
@@ -11,7 +11,7 @@ ORDER BY customer_id;
 
 -- 2. How many days has each customer visited the resturant?
 
-SELECT customer_id, COUNT(DISTINCT order_date)
+SELECT customer_id, COUNT(DISTINCT order_date) AS days_visited
 FROM sales
 GROUP BY customer_id
 ORDER BY customer_id;
@@ -35,24 +35,17 @@ ORDER BY customer_id, product_name;
 
 -- 4. What is the most purchased item on the menu and how many times was it purchased by all customers?
 
-SELECT customer_id, menu.product_name, COUNT(sales.product_id) AS times_ordered
-FROM sales, menu, (
-	-- Return most ordered item and its number of orders
-	SELECT product_id, COUNT(product_id) AS times_ordered
-	FROM sales
-	GROUP BY product_id
-	ORDER BY times_ordered DESC
-	LIMIT 1 
-)	AS a
-WHERE sales.product_id = a.product_id
-AND sales.product_id = menu.product_id
-GROUP BY customer_id, menu.product_name
-ORDER BY customer_id;
+SELECT product_name, COUNT(sales.product_id) AS times_ordered
+FROM sales
+JOIN menu ON sales.product_id = menu.product_id
+GROUP BY product_name
+ORDER BY times_ordered DESC
+LIMIT 1;
 
 
 -- 5. Which item was the most popular for each customer?
 
-SELECT DISTINCT ON (customer_id) customer_id, product_name, MAX(times_ordered) AS biggest_order
+SELECT DISTINCT ON (customer_id) customer_id, product_name, MAX(times_ordered) AS times_ordered
 FROM menu, (
 	-- Number of times each customer has ordered an item
 	SELECT customer_id, product_id, COUNT(product_id) AS times_ordered
@@ -62,7 +55,7 @@ FROM menu, (
 )	AS a
 WHERE menu.product_id = a.product_id
 GROUP BY customer_id, product_name
-ORDER BY customer_id, biggest_order DESC;
+ORDER BY customer_id, times_ordered DESC;
 
 
 -- 6. Which item was purchased first by the customer after they became a member?
@@ -87,12 +80,13 @@ ORDER BY customer_id, order_date DESC;
 
 -- 8. What is the total items and amount spent for each member before they became a member?
 
-SELECT members.customer_id, SUM(price) AS amount_spent
+SELECT members.customer_id, SUM(price) AS amount_spent, COUNT(sales.product_id) AS total_sales
 FROM members
 JOIN sales ON members.customer_id = sales.customer_id
-JOIN menu ON sales.product_id = sales.product_id
+JOIN menu ON menu.product_id = sales.product_id
 WHERE order_date < join_date
-GROUP BY members.customer_id;
+GROUP BY members.customer_id
+ORDER BY members.customer_id;
 
 
 -- 9. If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
