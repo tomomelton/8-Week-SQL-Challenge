@@ -310,7 +310,7 @@ ORDER BY customer_id;
 - All case study details, including the full problem statement, database diagram, and sample data used, can be found through the link:
 	[8 Week SQL Challenge: Case Study #1 - Danny's Diner](https://8weeksqlchallenge.com/case-study-1/)
 
-- I have not seen the official answers for this case study. If you have any questions or feedback on my solutions please contact me on my LinkedIn: 
+- I have not seen the official solutions for this case study. If you have any questions or feedback on my solutions please contact me on my LinkedIn: 
 	[Tom Melton](https://LinkedIn.com/in/tom-melton-23a59b353/)
 
 
