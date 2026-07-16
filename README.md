@@ -7,3 +7,4 @@ These solutions are implemented using PostgreSQL in pgAdmin 4
 ## Table of Contents
 - [Case Study #1 | Danny's Diner](Case%20Study%20%231%20%7C%20Danny's%20Diner/)
 - [Case Study #2 | Pizza Runner](Case%20Study%20%232%20%7C%20Pizza%20Runner/)
+- [Case Study #3 | Foodie-Fi](Case%20Study%20%233%20%7C%20Foodie-Fi/)
