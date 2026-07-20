@@ -8,6 +8,7 @@ These solutions are implemented using PostgreSQL in pgAdmin 4
 - [Case Study #1 | Danny's Diner](Case%20Study%20%231%20%7C%20Danny's%20Diner/)
 - [Case Study #2 | Pizza Runner](Case%20Study%20%232%20%7C%20Pizza%20Runner/)
 - [Case Study #3 | Foodie-Fi](Case%20Study%20%233%20%7C%20Foodie-Fi/)
+- [Case Study #4 | Data Bank](Case%20Study%20%234%20%7C%20Data%20Bank/)
 
 
 ## Links
