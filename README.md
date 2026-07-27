@@ -10,6 +10,7 @@ These solutions are implemented using PostgreSQL in pgAdmin 4
 - [Case Study #3 | Foodie-Fi](Case%20Study%20%233%20%7C%20Foodie-Fi/)
 - [Case Study #4 | Data Bank](Case%20Study%20%234%20%7C%20Data%20Bank/)
 - [Case Study #5 | Data Mart](Case%20Study%20%235%20%7C%20Data%20Mart%20/)
+- [Case Study #6 | Clique Bait](Case%20Study%20%236%20%7C%20Clique%20Bait/)
 
 
 ## Links
