@@ -7,8 +7,8 @@
 - [Problem Statement](#problem-statement)
 - [Case Study Questions](#case-study-questions)
   - [1. Data Cleansing](#1-data-cleansing)
-  - [2. Data Exploration](2-data-exploration)
-  - [3. Before & After Analysis](3-before-&-after-analysis)
+  - [2. Data Exploration](#2-data-exploration)
+  - [3. Before & After Analysis](#3-before--after-analysis)
 - [Links](#links)
 
 ## Problem Statement
