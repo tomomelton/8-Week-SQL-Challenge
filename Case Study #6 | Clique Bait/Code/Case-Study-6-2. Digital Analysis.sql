@@ -118,6 +118,8 @@ WHERE EXISTS (
 	WHERE b.visit_id = e.visit_id
 	AND event_type = 3
 )
+-- Remove product views
+AND event_type = 2
 -- Remove null products
 AND product_category IS NOT NULL
 
