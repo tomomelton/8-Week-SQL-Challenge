@@ -106,7 +106,7 @@ GROUP BY product_category;
 -- 9. What are the top 3 products by purchases?
 
 SELECT
-	product_category,
+	page_name AS product,
 	COUNT(*) AS purchases
 FROM events AS e
 JOIN page_hierarchy AS p
@@ -121,7 +121,8 @@ WHERE EXISTS (
 -- Remove null products
 AND product_category IS NOT NULL
 
-GROUP BY product_category
+GROUP BY page_name, product_id
+HAVING product_id IS NOT NULL
 ORDER BY purchases DESC
 LIMIT 3;
 
