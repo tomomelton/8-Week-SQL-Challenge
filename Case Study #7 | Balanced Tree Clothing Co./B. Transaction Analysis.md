@@ -1,6 +1,6 @@
 # Case Study #7 | Balanced Tree Clothing Co.
 
-## B. Product Analysis
+## B. Transaction Analysis
 
 ### 1. How many unique transactions were there?
 ``` SQL
